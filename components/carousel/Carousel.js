@@ -36,7 +36,8 @@ const ENTRIES1 = [
     illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
   },
 ];
-const {width: screenWidth} = Dimensions.get('window');
+
+const {height: screenHeight, width: screenWidth} = Dimensions.get('screen');
 
 const MyCarousel = (props) => {
   const [entries, setEntries] = useState([]);
@@ -75,10 +76,10 @@ const MyCarousel = (props) => {
       <Carousel
         vertical={true}
         ref={carouselRef}
-        sliderWidth={screenWidth}
-        sliderHeight={screenWidth}
-        itemWidth={screenWidth - 20}
-        itemHeight={screenWidth - 20}
+        // sliderWidth={screenWidth}
+        sliderHeight={screenHeight - 200}
+        // itemWidth={screenWidth - 20}
+        itemHeight={screenHeight - 200}
         data={entries}
         renderItem={renderItem}
         hasParallaxImages={true}
@@ -92,10 +93,11 @@ export default MyCarousel;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // marginHorizontal: 20,
   },
   item: {
     width: screenWidth - 20,
-    height: screenWidth - 20,
+    height: screenHeight - 200,
   },
   imageContainer: {
     flex: 1,
